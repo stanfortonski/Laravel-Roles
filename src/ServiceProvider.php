@@ -3,23 +3,27 @@
 namespace Stanfortonski\Laravelroles;
 
 use Stanfortonski\Laravelroles\Helpers\RoleDirectives;
-use Stanfortonski\Laravelroles\Middleware\AllOfRoles;
-use Stanfortonski\Laravelroles\Middleware\OneOfRoles;
-use Stanfortonski\Laravelroles\Middleware\Role;
-use Illuminate\Routing\Router;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    public function register()
-    {
-        RoleDirectives::register();
+    protected function getConfigPath(){
+        return __DIR__ . '/../config/roles.php';
     }
 
-    public function boot(Router $router)
+    public function register()
     {
-        $router->middleware('role', Role::class);
-        $router->middleware('roles', OneOfRoles::class);
-        $router->middleware('allofroles', AllOfRoles::class);
+        $this->mergeConfigFrom($this->getConfigPath(), 'roles');
+
+        if (config('roles.directives'))
+            RoleDirectives::register();
+    }
+
+    public function boot()
+    {
+        $this->publishes([
+            $this->getConfigPath() => config_path('roles.php'),
+        ]);
+
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
