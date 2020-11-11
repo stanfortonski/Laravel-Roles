@@ -14,13 +14,13 @@ trait HasRole
 
     public function hasRole(string $name): bool
     {
-        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id')->where('roles.name', $name)->count() > 0;
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id')->where('roles.name', $name)->count() > 0;
     }
 
     public function hasAllOfRoles(array $names): bool
     {
         foreach ($names as $name){
-            $relation = $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+            $relation = $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
             if (empty($relation->where('roles.name', '=', $name)->first()))
                 return false;
         }
@@ -30,7 +30,7 @@ trait HasRole
     public function hasOneOfRoles(array $names): bool
     {
         foreach ($names as $name){
-            $relation = $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+            $relation = $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
             if (!empty($relation->where('roles.name', '=', $name)->first()))
                 return true;
         }
@@ -39,13 +39,13 @@ trait HasRole
 
     public function hasRoleById(int $id): bool
     {
-        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id')->where('roles.id', $id)->count() > 0;
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id')->where('roles.id', $id)->count() > 0;
     }
 
     public function hasOneOfRolesById(array $ids): bool
     {
         foreach ($ids as $id){
-            $relation = $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+            $relation = $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
             if (!empty($relation->where('roles.id', '=', $id)->first()))
                 return true;
         }
@@ -55,7 +55,7 @@ trait HasRole
     public function hasAllOfRolesById(array $ids): bool
     {
         foreach ($ids as $id){
-            $relation = $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+            $relation = $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
             if (empty($relation->where('roles.id', '=', $id)->first()))
                 return false;
         }
