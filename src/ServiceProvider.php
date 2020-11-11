@@ -20,6 +20,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $router->middleware('role', Role::class);
         $router->middleware('roles', OneOfRoles::class);
         $router->middleware('allofroles', AllOfRoles::class);
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
