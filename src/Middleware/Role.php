@@ -3,7 +3,6 @@
 namespace Stanfortonski\Laravelroles\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class Role
 {
@@ -16,7 +15,7 @@ class Role
      */
     public function handle($request, Closure $next, $role)
     {
-        if (Auth::check()){
+        if (auth()->check()){
             if (auth()->user()->hasRole($role)){
                 return $next($request);
             }

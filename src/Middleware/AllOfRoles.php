@@ -3,7 +3,6 @@
 namespace Stanfortonski\Laravelroles\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class AllOfRoles
 {
@@ -16,7 +15,7 @@ class AllOfRoles
      */
     public function handle($request, Closure $next, $roles)
     {
-        if (Auth::check()){
+        if (auth()->check()){
             $rolesArr = explode('|', $roles);
             if (auth()->user()->hasAllOfRoles($rolesArr)){
                 return $next($request);
