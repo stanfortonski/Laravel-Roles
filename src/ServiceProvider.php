@@ -2,7 +2,7 @@
 
 namespace Stanfortonski\Laravelroles;
 
-use App\Helpers\RoleDirectives;
+use Stanfortonski\Laravelroles\RoleDirectives;
 use Stanfortonski\Laravelroles\Middleware\AllOfRoles;
 use Stanfortonski\Laravelroles\Middleware\OneOfRoles;
 use Stanfortonski\Laravelroles\Middleware\Role;
