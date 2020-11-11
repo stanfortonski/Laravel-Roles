@@ -13,7 +13,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register()
     {
         RoleDirectives::register();
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     public function boot(Router $router)
@@ -21,5 +20,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $router->middleware('role', Role::class);
         $router->middleware('roles', OneOfRoles::class);
         $router->middleware('allofroles', AllOfRoles::class);
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 }
