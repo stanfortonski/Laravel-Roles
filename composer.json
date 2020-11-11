@@ -1,0 +1,36 @@
+{
+    "name": "stanfortonski/laravel-roles",
+    "description": "User Roles for Laravel Applications.",
+    "keywords": [
+        "laravel",
+        "roles",
+        "users"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stan Fortonski",
+            "email": "contact@stanfortonski.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stanfortonski\\Laravelroles\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stanfortonski\\Laravelroles\\ServiceProvider"
+            ],
+            "aliases": {
+                "App\\Role": "Stanfortonski\\Laravelroles\\Models\\Role"
+            }
+        }
+    }
+}
