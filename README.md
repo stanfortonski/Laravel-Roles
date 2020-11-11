@@ -50,8 +50,9 @@ Examples: (Attention you have to define admin, moderator and writer roles before
 ## Seeding Example
 If you want to define yours own roles run this command `php artisan make:seeder RoleSeeder` and next copy and paste below code to database/seeders/RoleSeeder.php.
 ```php
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
