@@ -27,7 +27,7 @@ Additonal you can publish config file roles.php. Run command: `php artisan vendo
 # Usage
 If you want to determine which user can use the link. You need to use one of three middleware: roles, roles, allofroles.
 
-Examples: (Attention you have to define admin and moderator roles before! Go To Seeding example.)
+Examples: (Attention you have to define admin, moderator and writer roles before! Go To Seeding example.)
 1. Only admin can access to main page. 
 ```php
     Route::get('/', function () {
