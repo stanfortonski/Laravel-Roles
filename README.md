@@ -9,8 +9,8 @@ This package provides you to set of middleware, migrations, directives and metho
 2. Setup provider. In config/app.php add folllowing code to bottom of providers:
 ```php
 'providers' => [
-  ...
-  Stanfortonski\Laravelroles\ServiceProvider::class
+    ...
+    Stanfortonski\Laravelroles\ServiceProvider::class
 ],
 ```
 3. Setup middleware. In app/Http/Kernel.php add folllowing code to bottom of middlewares:
