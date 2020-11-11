@@ -1,6 +1,6 @@
 {
     "name": "stanfortonski/laravel-roles",
-    "description": "User Roles for Laravel Applications.",
+    "description": "Users Roles for Laravel Applications.",
     "keywords": [
         "laravel",
         "roles",
@@ -27,10 +27,7 @@
         "laravel": {
             "providers": [
                 "Stanfortonski\\Laravelroles\\ServiceProvider"
-            ],
-            "aliases": {
-                "App\\Role": "Stanfortonski\\Laravelroles\\Models\\Role"
-            }
+            ]
         }
     }
 }

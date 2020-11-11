@@ -3,12 +3,13 @@
 namespace Stanfortonski\Laravelroles\Traits;
 
 use Illuminate\Support\Facades\DB;
+use Stanfortonski\Laravelroles\Models\Role;
 
 trait HasRole
 {
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
     }
 
     public function hasRole(string $name): bool
