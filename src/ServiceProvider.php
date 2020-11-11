@@ -6,10 +6,6 @@ use Stanfortonski\Laravelroles\Helpers\RoleDirectives;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    protected function getConfigPath(){
-        return __DIR__ . '/../config/roles.php';
-    }
-
     public function register()
     {
         $this->mergeConfigFrom($this->getConfigPath(), 'roles');
@@ -25,5 +21,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ]);
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+    }
+
+    protected function getConfigPath()
+    {
+        return __DIR__ . '/../config/roles.php';
     }
 }
