@@ -40,7 +40,7 @@ Examples: (Attention you have to define admin, moderator and writer roles before
         return view('welcome');
     })->middleware('roles:admin|moderator');
 ```
-3. Only User that have Admin and writer roles (all of these) can access to main page. 
+3. Only User that have admin and writer roles (all of these) can access to main page. 
 ```php
     Route::get('/', function () {
         return view('welcome');
