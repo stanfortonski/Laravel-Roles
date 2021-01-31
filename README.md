@@ -6,7 +6,7 @@ This package provides you to set of middleware, migrations, directives and metho
 
 # Installation
 1. First download package `composer require stanfortonski/laravel-roles`.
-2. Setup provider. In config/app.php add folllowing code to bottom of providers:
+2. Setup provider. In config/app.php add following code to bottom of providers:
 ```php
 'providers' => [
     //...
