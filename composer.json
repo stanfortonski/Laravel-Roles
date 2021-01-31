@@ -4,7 +4,12 @@
     "keywords": [
         "laravel",
         "roles",
-        "users"
+        "permissions",
+        "users",
+        "groups",
+        "laravel-package",
+        "laravel-plugin",
+        "laravel-module"
     ],
     "license": "MIT",
     "authors": [
