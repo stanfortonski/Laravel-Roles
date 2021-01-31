@@ -1,5 +1,5 @@
 # Laravel-Roles
-Users roles for Laravel applications.
+Users roles for Laravel applications. Compatible with Laravel 7.x and 8.x.
 
 # Information
 This package provides you to set of middleware, migrations, directives and methods to user model which can you use for build Laravel Application wht different types of users. You can block or allow to use part of your application to for example admin or guest.
@@ -40,7 +40,7 @@ Examples: (Attention you have to define admin, moderator and writer roles before
         return view('welcome');
     })->middleware('roles:admin|moderator');
 ```
-3. Only User that have Admin and writer roles (all of these) can access to main page. 
+3. Only User that have admin and writer roles (all of these) can access to main page. 
 ```php
     Route::get('/', function () {
         return view('welcome');
