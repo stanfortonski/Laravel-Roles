@@ -1,8 +1,10 @@
 {
     "name": "stanfortonski/laravel-roles",
-    "description": "Users Roles for Laravel Applications.",
+    "description": "Users Roles for Laravel Applications. Laravel 7.x and 8.x.",
     "keywords": [
         "laravel",
+        "Laravel 7",
+        "Laravel 8",
         "roles",
         "permissions",
         "users",
