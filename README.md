@@ -1,5 +1,5 @@
 # Laravel-Roles
-Users roles for Laravel applications.
+Users roles for Laravel applications. Compatible with Laravel 7.x and 8.x.
 
 # Information
 This package provides you to set of middleware, migrations, directives and methods to user model which can you use for build Laravel Application wht different types of users. You can block or allow to use part of your application to for example admin or guest.
