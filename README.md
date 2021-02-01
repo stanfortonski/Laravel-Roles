@@ -23,7 +23,7 @@ protected $routeMiddleware = [
 ];
 ```
 4. Use \Stanfortonski\Laravelroles\Traits\HasRole trait in User class. Snippet: `use HasRole;`.
-Additonal you can publish config file roles.php. Run command: `php artisan vendor:publish --provider="Stanfortonski\Laravelroles\ServiceProvider"`.
+5. Additonal you can publish config file roles.php. Run command: `php artisan vendor:publish --provider="Stanfortonski\Laravelroles\ServiceProvider"`.
 
 # Usage
 If you want to determine which user can use the link. You need to use one of three middleware: roles, roles, allofroles.
