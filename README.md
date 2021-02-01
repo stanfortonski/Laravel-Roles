@@ -13,7 +13,7 @@ This package provides you to set of middleware, migrations, directives and metho
     Stanfortonski\Laravelroles\ServiceProvider::class
 ],
 ```
-3. Setup middleware. In app/Http/Kernel.php add folllowing code to bottom of middlewares:
+3. Setup middleware. In app/Http/Kernel.php add following code to bottom of middlewares:
 ```php
 protected $routeMiddleware = [
     //...
@@ -22,6 +22,7 @@ protected $routeMiddleware = [
     'allofroles' => \Stanfortonski\Laravelroles\Middleware\AllOfRoles::class
 ];
 ```
+4. Use \Stanfortonski\Laravelroles\Traits\HasRole trait in User class. Snippet: `use HasRole;`.
 Additonal you can publish config file roles.php. Run command: `php artisan vendor:publish --provider="Stanfortonski\Laravelroles\ServiceProvider"`.
 
 # Usage
