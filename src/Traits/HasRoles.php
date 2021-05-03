@@ -39,9 +39,26 @@ trait HasRoles
         return false;
     }
 
-    public function clearRoles(): int
+    public function addRole(int $name): int
     {
-        return DB::table('users_roles')->where('user_id', '=', $this->id)->delete();
+        $role = Role::findOrFailByName($name);
+
+        return DB::table('users_roles')->insert([
+            'user_id' => $this->id,
+            'role_id' => $role->id
+        ]);
+    }
+
+    public function addRoles(array $names): void
+    {
+        foreach ($names as $name){
+            $role = Role::findOrFailByName($name);
+
+            DB::table('users_roles')->insert([
+                'user_id' => $this->id,
+                'role_id' => $role->id
+            ]);
+        }
     }
 
     public function removeRole(string $name): bool
@@ -59,5 +76,10 @@ trait HasRoles
             if (!empty($role))
                 DB::table('users_roles')->where('user_id', '=', $this->id)->where('role_id', '=', $role->id)->delete();
         }
+    }
+
+    public function clearRoles(): int
+    {
+        return DB::table('users_roles')->where('user_id', '=', $this->id)->delete();
     }
 }

@@ -31,13 +31,31 @@ trait HasRolesIds
         return true;
     }
 
-    public function removeRolesByIds(array $ids): int
+    public function addRoleById(int $id): int
     {
-        return DB::table('users_roles')->where('user_id', '=', $this->id)->whereIn('role_id', $ids)->delete();
+        return DB::table('users_roles')->insert([
+            'user_id' => $this->id,
+            'role_id' => $id
+        ]);
+    }
+
+    public function addRolesByIds(array $ids): void
+    {
+        foreach ($ids as $id){
+            DB::table('users_roles')->insert([
+                'user_id' => $this->id,
+                'role_id' => $id
+            ]);
+        }
     }
 
     public function removeRoleById(int $id): int
     {
         return DB::table('users_roles')->where('user_id', '=', $this->id)->where('role_id', '=', $id)->delete();
+    }
+
+    public function removeRolesByIds(array $ids): int
+    {
+        return DB::table('users_roles')->where('user_id', '=', $this->id)->whereIn('role_id', $ids)->delete();
     }
 }

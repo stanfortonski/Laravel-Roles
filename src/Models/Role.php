@@ -12,4 +12,14 @@ class Role extends Model
         'user_id',
         'role_id'
     ];
+
+    static public function findByName(string $name)
+    {
+        return static::where('name', '=', $name)->first();
+    }
+
+    static public function findOrFailByName(string $name)
+    {
+        return static::where('name', '=', $name)->firstOrFail();
+    }
 }
