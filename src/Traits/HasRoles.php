@@ -39,7 +39,7 @@ trait HasRoles
         return false;
     }
 
-    public function addRole(int $name): int
+    public function addRole(string $name): int
     {
         $role = Role::findOrFailByName($name);
 
