@@ -22,7 +22,7 @@ protected $routeMiddleware = [
     'allofroles' => \Stanfortonski\Laravelroles\Middleware\AllOfRoles::class
 ];
 ```
-4. Use \Stanfortonski\Laravelroles\Traits\HasRole trait in User class. Snippet: `use HasRole;`.
+4. Use \Stanfortonski\Laravelroles\Traits\HasRoles trait in User class. Snippet: `use HasRoles;`.
 5. Additonal you can publish config file roles.php. Run command: `php artisan vendor:publish --provider="Stanfortonski\Laravelroles\ServiceProvider"`.
 
 # Usage
