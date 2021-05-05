@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 
 trait HasRolesIds
 {
+    use RolesRelation;
+
     public function hasRoleById(int $id): bool
     {
         return $this->roles()->where('roles.id', $id)->count() > 0;

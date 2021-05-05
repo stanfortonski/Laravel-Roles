@@ -22,10 +22,16 @@ protected $routeMiddleware = [
     'allofroles' => \Stanfortonski\Laravelroles\Middleware\AllOfRoles::class
 ];
 ```
-4. Use \Stanfortonski\Laravelroles\Traits\HasRoles trait in User class. Snippet: `use HasRoles;`.
+4. Use one of three traits HasRoles, HasRolesIds or HasRolesIdsAdapter in User class. Snippet: `use HasRoles;`, `use HasRolesIds;` or `use HasRolesIdsAdapter;`.
 5. Additonal you can publish config file roles.php. Run command: `php artisan vendor:publish --provider="Stanfortonski\Laravelroles\ServiceProvider"`.
 
 # Usage
+## More about traits HasRoles, HasRolesIds or HasRolesIdsAdapter. 
+- HasRoles is for roles based on names. Default way.
+- HasRolesIds is for roles based on ids (methods suffix is ById or ByIds). HasRolesIds is actually for combining with HasRole.
+- HasRolesIdsAdapter is for roles based on ids but methods are exactly same samed as in HasRoles trait. It is for independent use without HasRolesIds or HasRoles. Purpose of that is middlewares and directives doesn't work with HasRoleIds methods.
+
+## Middleware
 If you want to determine which user can use the link. You need to use one of three middleware: roles, roles, allofroles.
 
 Examples: (Attention you have to define admin, moderator and writer roles before! Go To Seeding example.)
@@ -47,6 +53,41 @@ Examples: (Attention you have to define admin, moderator and writer roles before
         return view('welcome');
     })->middleware('allofroles:admin|writer');
 ```
+
+## Checking that user has roles
+```php
+    $result = $user->hasRole('admin');
+```
+
+```php
+    $result = $user->hasOneOfRoles(['admin', 'mod']);
+```
+
+```php
+    $result = $user->hasAllOfRoles(['admin', 'mod']);
+```
+
+
+## Adding roles
+```php
+    $user->addRole('admin');
+```
+
+```php
+    $user->addRoles(['admin', 'writer']);
+```
+
+## Removing roles
+```php
+    $user->removeRole('admin');
+```
+
+```php
+    $user->removeRoles(['admin', 'mod']);
+```
+
+- For HasRolesIds you have to use suffix ByIds for multiple or ById for singular. For parameter pass integer or array of integers.
+- For HasRolesIdsAdapter you doesn't have to use suffix but for parameter you have to pass integer or array of integers.
 
 ## Seeding Example
 If you want to define yours own roles run this command `php artisan make:seeder RoleSeeder` and next copy and paste below code to database/seeders/RoleSeeder.php.

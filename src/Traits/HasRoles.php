@@ -7,12 +7,7 @@ use Stanfortonski\Laravelroles\Models\Role;
 
 trait HasRoles
 {
-    use HasRolesIds;
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
-    }
+    use RolesRelation;
 
     public function hasRole(string $name): bool
     {
