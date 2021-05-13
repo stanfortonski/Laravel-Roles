@@ -31,6 +31,11 @@ protected $routeMiddleware = [
 - HasRolesIds is for roles based on ids (methods suffix is ById or ByIds). HasRolesIds is actually for combining with HasRole.
 - HasRolesIdsAdapter is for roles based on ids but methods are exactly same samed as in HasRoles trait. It is for independent use without HasRolesIds or HasRoles. Purpose of that is middlewares and directives doesn't work with HasRoleIds methods.
 
+- For HasRolesIds you have to use suffix ByIds for multiple or ById for singular. For parameter pass integer or array of integers. Example:
+`$user->hasRoleById(1)` instead of `$user->hasRole('nameofrole')`
+
+- For HasRolesIdsAdapter you doesn't have to use suffix but for parameter you have to pass integer or array of integers. Example: `$user->hasRole(1)` instead of `$user->hasRole('nameofrole')`
+
 ## Middleware
 If you want to determine which user can use the link. You need to use one of three middleware: roles, roles, allofroles.
 
@@ -86,10 +91,7 @@ Examples: (Attention you have to define admin, moderator and writer roles before
     $user->removeRoles(['admin', 'mod']);
 ```
 
-- For HasRolesIds you have to use suffix ByIds for multiple or ById for singular. For parameter pass integer or array of integers.
-- For HasRolesIdsAdapter you doesn't have to use suffix but for parameter you have to pass integer or array of integers.
-
-## Seeding Example
+## Seeding
 If you want to define yours own roles run this command `php artisan make:seeder RoleSeeder` and next copy and paste below code to database/seeders/RoleSeeder.php.
 ```php
 namespace Database\Seeders;
