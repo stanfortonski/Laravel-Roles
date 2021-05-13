@@ -72,9 +72,4 @@ trait HasRoles
                 DB::table('users_roles')->where('user_id', '=', $this->id)->where('role_id', '=', $role->id)->delete();
         }
     }
-
-    public function clearRoles(): int
-    {
-        return DB::table('users_roles')->where('user_id', '=', $this->id)->delete();
-    }
 }
