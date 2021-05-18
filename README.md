@@ -28,7 +28,7 @@ protected $routeMiddleware = [
 # Usage
 ## More about traits HasRoles, HasRolesIds or HasRolesIdsAdapter. 
 - HasRoles is for roles based on names. Default way.
-- HasRolesIds is for roles based on ids (methods suffix is ById or ByIds). HasRolesIds is actually for combining with HasRole.
+- HasRolesIds is for roles based on ids (methods suffix is ById or ByIds). HasRolesIds is actually for combining with HasRoles.
 - HasRolesIdsAdapter is for roles based on ids but methods are exactly same samed as in HasRoles trait. It is for independent use without HasRolesIds or HasRoles. Purpose of that is middlewares and directives doesn't work with HasRoleIds methods.
 
 - For HasRolesIds you have to use suffix ByIds for multiple or ById for singular. For parameter pass integer or array of integers. Example:
